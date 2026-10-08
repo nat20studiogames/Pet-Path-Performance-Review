@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pet Escape — Performance Review</title>
+<meta name="description" content="Performance review and agreed profit share for the Pet Escape prototype — Nat20 Studio.">
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ======================================================================
+     Masthead
+     ==================================================================== -->
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">
+      <span>Nat20 Studio</span><span class="dot"></span>
+      <span>Performance Review</span><span class="dot"></span>
+      <span id="gen-date">—</span>
+    </div>
+
+    <h1>Pet Escape<br><span class="thin">Contribution review &amp; profit share</span></h1>
+
+    <p class="lede">
+      A full read-out of the project's task matrix — what was built, how heavy
+      and how critical each piece was, who owned it and who backed them up —
+      closing with the profit share the team agreed.
+    </p>
+
+    <p class="source-line">
+      <span>Source:</span>
+      <a id="src-link" href="#" rel="noopener noreferrer" target="_blank"><span class="src-workbook">—</span></a>
+      <span>· “Tasks List” sheet · transcribed verbatim</span>
+    </p>
+
+    <div class="stats" id="stat-strip"></div>
+  </div>
+</header>
+
+<noscript>
+  <div class="wrap" style="padding:32px 16px">
+    <div style="padding:20px;border:1px solid var(--border-strong);border-radius:12px;background:var(--surface)">
+      <strong>JavaScript is required.</strong>
+      <p style="margin-top:8px;color:var(--text-2)">
+        Every chart and table on this page is generated from
+        <code>assets/js/data.js</code> in the browser. Enable JavaScript and
+        reload to view the report.
+      </p>
+    </div>
+  </div>
+</noscript>
+
+<main id="main">
+
+  <!-- ====================================================================
+       1 · The team
+       ================================================================== -->
+  <section id="team">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-num">01 — The team</span>
+        <h2>Four people, four lanes</h2>
+        <p>
+          Each member and the number of tasks they are recorded as the owner of.
+          Ownership means accountability for delivering the task; a separate
+          support column, covered further down, records who else worked on it.
+        </p>
+      </div>
+      <div class="people" id="people"></div>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       2 · How the review was set up
+       ================================================================== -->
+  <section id="setup">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-num">02 — Method</span>
+        <h2>How the review was set up</h2>
+        <p>
+          Every task was logged against four dimensions. Nothing is estimated or
+          inferred here — these are the sheet's own columns, and the charts that
+          follow are counts of them.
+        </p>
+      </div>
+
+      <div class="defs">
+        <div class="def">
+          <h4>Work stream</h4>
+          <p>Which part of production the task belonged to: Ideation, Code, Design, Art, Marketing or Others.</p>
+        </div>
+        <div class="def">
+          <h4>Impact</h4>
+          <p>How much the shipped game depended on the task — from Critical, meaning the project fails without it, down to Low.</p>
+          <div class="scale">
+            <span class="chip chip-impact-critical">Critical</span>
+            <span class="chip chip-impact-high">High</span>
+            <span class="chip chip-impact-medium">Medium</span>
+            <span class="chip chip-impact-low">Low</span>
+          </div>
+        </div>
+        <div class="def">
+          <h4>Size</h4>
+          <p>Rough effort the task absorbed, as a three-step scale rather than hours.</p>
+          <div class="scale">
+            <span class="chip chip-size chip-size-large">Large</span>
+            <span class="chip chip-size chip-size-medium">Medium</span>
+            <span class="chip chip-size chip-size-small">Small</span>
+          </div>
+        </div>
+        <div class="def">
+          <h4>Owner &amp; support</h4>
+          <p>The person accountable for the task, plus anyone who contributed alongside them. “Team” means the whole group chipped in.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       3 · Project composition
+       ================================================================== -->
+  <section id="composition">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-num">03 — Composition</span>
+        <h2>What the project was made of</h2>
+        <p>
+          The shape of the work before anyone's name is attached to it: where the
+          tasks sat, how critical they were, and how much effort they carried.
+        </p>
+      </div>
+
+      <div class="grid g-wide">
+        <div class="card">
+          <div class="card-head">
+            <h3>Tasks by work stream</h3>
+            <p>How the 33 reviewed tasks distribute across production areas.</p>
+          </div>
+          <div id="chart-category"></div>
+          <p class="takeaway">
+            <strong>Engineering dominated.</strong> 23 of 33 tasks sat in Code —
+            roughly seven in ten. Design, Art and Marketing each resolved into a
+            small number of larger, self-contained deliverables.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-head">
+            <h3>Impact &amp; size profile</h3>
+            <p>How the work was rated on each scale.</p>
+          </div>
+
+          <h4 style="font-size:.72rem;letter-spacing:.09em;text-transform:uppercase;color:var(--text-3);margin-bottom:10px">Impact</h4>
+          <div id="chart-impact"></div>
+          <div class="legend" id="legend-impact"></div>
+
+          <h4 style="font-size:.72rem;letter-spacing:.09em;text-transform:uppercase;color:var(--text-3);margin:22px 0 10px">Size</h4>
+          <div id="chart-size"></div>
+          <div class="legend" id="legend-size"></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       4 · Ownership
+       ================================================================== -->
+  <section id="ownership">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-num">04 — Ownership</span>
+        <h2>Who owned what</h2>
+        <p>
+          Task counts, not percentages — a count says what each person carried
+          without implying a formula for what they are owed.
+        </p>
+      </div>
+
+      <div class="grid g-wide">
+        <div class="card">
+          <div class="card-head">
+            <h3>Work streams each member owned in</h3>
+            <p>Every stream a person owned at least one task in, with counts.</p>
+          </div>
+          <div id="chart-owner-category"></div>
+          <p class="takeaway">
+            <strong>Two generalists, two specialists.</strong> Phú and Phong
+            both sat almost entirely in Code and split it between them. Hiếu
+            spanned Design, Marketing and Code. Dương's work was wholly Art —
+            the only member working in a stream nobody else touched.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-head">
+            <h3>Tasks owned</h3>
+            <p>Accountable for delivery.</p>
+          </div>
+          <div id="chart-owner"></div>
+
+          <div class="card-head" style="margin-top:26px">
+            <h3>Tasks supported</h3>
+            <p>Contributed to someone else's task.</p>
+          </div>
+          <div id="chart-support"></div>
+          <p class="takeaway">
+            Phú appears as support more often than anyone — consistent with a
+            coordinating role that touches other people's work.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       5 · Collaboration
+       ================================================================== -->
+  <section id="collaboration">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-num">05 — Collaboration</span>
+        <h2>How the team worked together</h2>
+        <p>
+          Of 33 tasks, <strong id="collab-shared">—</strong> had a named
+          second contributor and <strong id="collab-solo">—</strong> were
+          carried alone. Below, every pair who shared tasks, and how many.
+        </p>
+      </div>
+
+      <div class="card">
+        <ul class="link-list" id="collab-links"></ul>
+        <p class="takeaway">
+          <strong>The Phú–Phong axis carried the project.</strong> Ten of the
+          seventeen shared tasks were between those two, and the support ran
+          both ways — five tasks each direction, an even exchange rather than
+          one person assisting the other. Dương's only link is to the team as a
+          whole, reflecting art work that ran independently of the code.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       6 · Critical path
+       ================================================================== -->
+  <section id="critical">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-num">06 — Critical path</span>
+        <h2>The load-bearing seven</h2>
+        <p>
+          Tasks rated Critical: the ones the shipped prototype genuinely
+          depended on. Phú, Phong and Hiếu each own a share of them, and six of
+          the seven were shared rather than carried alone.
+        </p>
+      </div>
+      <div class="crit" id="crit-cards"></div>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       7 · Register
+       ================================================================== -->
+  <section id="register">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-num">07 — Register</span>
+        <h2>Every task on record</h2>
+        <p>
+          The complete matrix, filterable and sortable. Filtering by a person
+          shows everything they owned or supported.
+        </p>
+      </div>
+
+      <div class="filters">
+        <div class="fld">
+          <label for="f-search">Search task</label>
+          <input type="search" id="f-search" placeholder="e.g. blocker" autocomplete="off">
+        </div>
+        <div class="fld">
+          <label for="f-category">Work stream</label>
+          <select id="f-category"></select>
+        </div>
+        <div class="fld">
+          <label for="f-impact">Impact</label>
+          <select id="f-impact"></select>
+        </div>
+        <div class="fld">
+          <label for="f-owner">Person <span class="sr-only">(owned or supported)</span></label>
+          <select id="f-owner"></select>
+        </div>
+        <button type="button" class="btn-reset" id="f-reset">Reset</button>
+        <span class="count" id="register-count"></span>
+      </div>
+
+      <div class="table-scroll">
+        <table class="register">
+          <caption>Filtering by a person shows tasks they owned <em>or</em> supported.</caption>
+          <thead>
+            <tr>
+              <th data-key="id" scope="col"><button type="button" class="sort">#<span class="car">▲</span></button></th>
+              <th data-key="task" scope="col"><button type="button" class="sort">Task<span class="car">▲</span></button></th>
+              <th data-key="category" scope="col"><button type="button" class="sort">Stream<span class="car">▲</span></button></th>
+              <th data-key="impact" scope="col"><button type="button" class="sort">Impact<span class="car">▲</span></button></th>
+              <th data-key="size" scope="col"><button type="button" class="sort">Size<span class="car">▲</span></button></th>
+              <th data-key="owner" scope="col"><button type="button" class="sort">Owner<span class="car">▲</span></button></th>
+              <th data-key="support" scope="col"><button type="button" class="sort">Support<span class="car">▲</span></button></th>
+            </tr>
+          </thead>
+          <tbody id="register-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       8 · Profit share
+       ================================================================== -->
+  <section id="share">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-num">08 — Profit share</span>
+        <h2>The agreed profit share</h2>
+        <p>
+          Profit is divided in two stages. Half is retained as a studio reserve;
+          the other half is the member pool, split four ways as agreed by the
+          team.
+        </p>
+      </div>
+
+      <div class="split-hero">
+        <h3 style="font-size:.72rem;letter-spacing:.09em;text-transform:uppercase;color:var(--text-3);margin-bottom:12px">
+          Stage one — reserve and member pool
+        </h3>
+        <div class="stage-bar" id="stage-bar"></div>
+        <p class="stage-note">
+          The reserve stays with the studio to cover running costs, freelance
+          work and the next project's runway.
+        </p>
+
+        <div class="pool">
+          <div>
+            <div id="donut-pool"></div>
+            <div class="legend" id="pool-legend" style="justify-content:center"></div>
+          </div>
+
+          <div>
+            <h3 style="font-size:.72rem;letter-spacing:.09em;text-transform:uppercase;color:var(--text-3);margin-bottom:14px">
+              Stage two — the member pool, four ways
+            </h3>
+            <table class="payout">
+              <thead>
+                <tr>
+                  <th scope="col">Member</th>
+                  <th scope="col" class="r">Of member pool</th>
+                </tr>
+              </thead>
+              <tbody id="payout-body"></tbody>
+              <tfoot id="payout-foot"></tfoot>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ======================================================================
+     Footer
+     ==================================================================== -->
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <h4>Source</h4>
+        <p>
+          All figures are transcribed from the “Tasks List” sheet of
+          <span class="src-workbook">—</span>. The sheet's empty
+          <em>Review</em> column is omitted.
+        </p>
+      </div>
+      <div>
+        <h4>Scope</h4>
+        <p>
+          This report describes the recorded work and states the agreed split.
+          It does not derive, weight or rank contributions, and the share shown
+          is the team's decision rather than a calculated result.
+        </p>
+      </div>
+      <div>
+        <h4>This page</h4>
+        <p>
+          Self-contained and offline — no external fonts, scripts or network
+          requests. To revise the figures, edit
+          <code>assets/js/data.js</code> and reload.
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button type="button" class="theme-toggle" id="theme-toggle">☾ Dark</button>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/charts.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
